@@ -1,5 +1,11 @@
 import React from "react";
 import './HomePage.css';
+import {
+  Link
+} from "react-router-dom";
+
+
+
 const HomePage = () => {
   return (
     <div id="parent">
@@ -19,7 +25,8 @@ const HomePage = () => {
           <small>Shahid Beheshti University</small>
           <small>IE Final Project</small>
         </div>
-        <button class="search-button">SEARCH MORE</button>
+        <Link to="/SearchPage" > <button class="search-button">SEARCH MORE</button></Link>
+        
       </div>
       <div id="narrow" style={{
 
@@ -39,30 +46,29 @@ const HomePage = () => {
               alignItems: 'center',
               flexDirection: 'row',
             }}>
-              <div class="box" id="st-box" >
-                <center>
-                  <div id="coin-item">
-                    <div id="coin-image">
-                      <img src="" alt="" />
-                    </div>
-                    <div id="coin-details">
-                      <div id="coin-name">
-                        $29355
+              {[1, 2, 3]
+                .map(product => <div class="box"  >
+                  <center>
+                    <div id="coin-item">
+                      <div id="coin-image">
+                        <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" alt="" />
                       </div>
-                      <div id="coin-price">
-                        Bitcoin
+                      <div id="coin-details">
+                        <div id="coin-name">
+                          $29355
+                        </div>
+                        <div id="coin-price">
+                          Bitcoin
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </center>
-              </div>
+                  </center>
+                </div>)}
 
-              <div class="box" id="nd-box">
-              </div>
 
-              <div class="box" id="rd-box">
 
-              </div>
+
+
             </div>
           </center>
 

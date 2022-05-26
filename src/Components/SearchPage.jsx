@@ -1,6 +1,11 @@
 import React from "react";
 import './SearchPage.css';
 import Navbar from '../Components/Navbar';
+import {
+    Link
+} from "react-router-dom";
+
+
 
 const SearchPage = () => {
     return (
@@ -58,18 +63,19 @@ const SearchPage = () => {
                                 <div class="change24-field">24 Change</div>
                                 <div class="market-cap-field">Market Cap</div>
                             </div>
-                            <div class="list-item"
-                                style={{
+                            <Link to="/CoinDetailsPage/1" class="list-item" >
+                                <div class="list-item"
+                                    style={{
 
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    flexDirection: 'row',
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        flexDirection: 'row',
 
-                                }}>
-                                <div class="coin-field" >
-                                    <div class="box"  >
-                                      
+                                    }}>
+                                    <div class="coin-field" >
+                                        <div class="box"  >
+
                                             <div class="coin-item" style={{
 
                                                 display: 'flex',
@@ -79,7 +85,7 @@ const SearchPage = () => {
 
                                             }}>
                                                 <div class="coin-image">
-                                                    <img src="" alt="" />
+                                                    <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" alt="" />
                                                 </div>
                                                 <div class="coin-details">
                                                     <div class="coin-abbr-name">
@@ -90,13 +96,15 @@ const SearchPage = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                       
+
+                                        </div>
                                     </div>
+                                    <div class="price-field">$23424.234</div>
+                                    <div class="change24-field">-2.83%</div>
+                                    <div class="market-cap-field">$23424.234</div>
                                 </div>
-                                <div class="price-field">$23424.234</div>
-                                <div class="change24-field">-2.83%</div>
-                                <div class="market-cap-field">$23424.234</div>
-                            </div>
+                            </Link>
+
                         </div>
                     </div>
                 </div>
