@@ -1,6 +1,7 @@
 .details-page-parent {
     display: flex;
-    height: 92.8vh;
+    /* height: 92.8vh; */
+    height: 100%;
     position: absolute;
     left: 0;
     width: 100%;
@@ -14,14 +15,15 @@
 }
 
 .image {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 .description {
     height: auto;
     width: 100%;
     /* margin-bottom: 20px; */
+    /* overflow: hidden; */
 }
 
 h3 {

@@ -109,7 +109,8 @@ h1 {
     text-align: center;
 }
 
-.change24-field {
+.red-24change-field,
+.green-24change-field {
     flex: 1;
     text-align: center;
 }
@@ -119,8 +120,12 @@ h1 {
     text-align: center;
 }
 
-.list-item>.change24-field {
+.list-item>.red-24change-field {
     color: red;
+}
+
+.list-item>.green-24change-field {
+    color: green;
 }
 
 .box {
