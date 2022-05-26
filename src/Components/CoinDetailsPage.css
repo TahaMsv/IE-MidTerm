@@ -1,0 +1,8 @@
+.details-page-parent {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: red;
+}
