@@ -1,0 +1,142 @@
+#parent {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-image: url("../../assets/images/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#narrow {
+    flex: 5;
+    height: 100%;
+}
+
+#wide {
+    flex: 3;
+    padding-left: 60px;
+}
+
+.headingTexts {
+    margin-top: 80PX;
+    width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.headingTexts>h1 {
+    font-size: 40px;
+    margin: 0;
+    color: white;
+}
+
+#buy-h1>span {
+    font-size: 45px;
+    color: rgb(255, 165, 0);
+}
+
+.smallTexts>small {
+    display: block;
+    color: white;
+}
+
+.search-button {
+    color: white;
+    padding: 10px 20PX;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    /* margin: 4px 2px; */
+    cursor: pointer;
+    border: none;
+    margin-top: 20PX;
+    border-radius: 15px;
+    background: rgb(255, 165, 0);
+}
+
+.change-theme-button {
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 20PX;
+    border-radius: 15px;
+    width: 120px;
+    background-color: transparent;
+    color: white;
+    border-radius: 15px;
+    margin-top: 20PX;
+    border: 1.5px solid white;
+    margin-right: 80px;
+}
+
+.container {
+    margin: auto;
+    width: 350px;
+    height: 80px;
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.coin-list {
+    width: 100%;
+}
+
+.box {
+    border-radius: 7px;
+    border: 1.5px solid white;
+    width: 100px;
+    height: 50px;
+}
+
+#st-box {
+    float: left;
+}
+
+#nd-box {
+    float: left;
+    margin-left: 20px;
+}
+
+#rd-box {
+    float: right;
+}
+
+.box>center>div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: 'row';
+    height: 100%;
+}
+
+#coin-item {
+    height: 50px;
+}
+
+#coin-image {
+    height: 30px;
+    width: 30px;
+    background-color: green;
+}
+
+#coin-details>div {
+    font-size: 12px;
+}
+
+#coin-name {
+    color: white;
+}
+
+#coin-price {
+    color: rgb(255, 165, 0);
+}
