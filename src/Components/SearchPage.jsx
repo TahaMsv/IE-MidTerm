@@ -30,6 +30,7 @@ const SearchPage = () => {
                     }}>
                         <div> <h1>Search  Coin</h1></div>
                         <small>Get Information From Here</small>
+
                     </div>
 
                     <div className="search-list" style={{
@@ -41,6 +42,7 @@ const SearchPage = () => {
 
                     }}>
                         <div class="search-list-title">Cryptocurrency Price By Market Cap</div>
+
                         <div class="list" style={{
 
                             display: 'flex',
@@ -49,6 +51,22 @@ const SearchPage = () => {
                             flexDirection: 'column',
 
                         }}>
+                            <div class="form-container" >
+                                <form class="search-form" method="post" action="" style={{
+
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    flexDirection: 'row',
+
+                                }}>
+
+                                    <input type="text" name="test" class="form-input" placeholder="Search for a crypto currency"/>
+                                    <input type="submit" name="test2" class="form-btn" value="Search" />
+
+                                </form>
+                            </div>
+
                             <div class="list-header"
                                 style={{
 
