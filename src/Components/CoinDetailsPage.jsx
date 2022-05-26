@@ -13,6 +13,7 @@ const CoinDetailsPage = () => {
                     justifyContent: 'space-around',
                     alignItems: 'center',
                     flexDirection: 'column',
+                    flexWrap: 'wrap-reverse'
                 }}>
                     <div class = "image">Image</div>
                     <div> <h1>Bitcoin</h1></div>
