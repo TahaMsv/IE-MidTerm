@@ -1,4 +1,4 @@
-#parent {
+/* #parent {
     display: flex;
     height: 100%;
     position: absolute;
@@ -9,7 +9,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-}
+} */
 
 ul {
     list-style-type: none;
