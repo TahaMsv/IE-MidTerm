@@ -1,12 +1,14 @@
+/* همه آیتم ها در یک ستون و وسط صفحه با فاصله برابر از هم به کمک فلکس */
+
 .details-page-parent {
-    display: flex;
-    /* height: 92.8vh; */
-    height: 100%;
+    height: fit-content;
     position: absolute;
     left: 0;
     width: 100%;
-    /* overflow: hidden; */
 }
+
+
+/*  بسیاری از کد تکراری است و صرفا بر اساس تم، رنگ ها تغییر میکند. */
 
 .dark-details-page-parent {
     background-color: black;
@@ -29,14 +31,13 @@
 .description {
     height: auto;
     width: 100%;
-    /* margin-bottom: 20px; */
-    /* overflow: hidden; */
+    margin-top: 20px;
+    /* overflow-y: scroll; */
 }
 
-
-/* h3 {
-    color: white;
-} */
+.rank {
+    height: 200px;
+}
 
 .dark-description {
     color: white;

@@ -10,9 +10,9 @@ const CoinDetailsPage = (isDarkMode) => {
 
     const [item, setItem] = useState(null);
 
-    const { id } = useParams()
+    const { id } = useParams()  //خواندن پارامتر ها از یو آر ال
     useEffect(() => {
-        fetch("https://api.coingecko.com/api/v3/coins/" + id).then(res => res.json()
+        fetch("https://api.coingecko.com/api/v3/coins/" + id).then(res => res.json()  //فچ کردن دیتیل
         ).then(coin => {
             // console.log(coin);
             setItem(coin);
@@ -23,9 +23,8 @@ const CoinDetailsPage = (isDarkMode) => {
         }
         );
     })
-    useEffect(() => {
-        console.log("is dark mode value", isDarkMode.isDarkMode)
-    }, [isDarkMode])
+
+
     return (
         <div >
 
@@ -37,19 +36,22 @@ const CoinDetailsPage = (isDarkMode) => {
                     justifyContent: 'space-around',
                     alignItems: 'center',
                     flexDirection: 'column',
-                    flexWrap: 'wrap-reverse'
+
                 }}>
                     <div class="image"><img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" alt="" /></div>
                     <div> <h1>{item.id}</h1></div>
 
-                    <div class="description"  dangerouslySetInnerHTML={{ __html: item.description.en }} style= {(isDarkMode.isDarkMode ? { color:'white'} :  {color:'black'})}   >
+                    <div class="description" dangerouslySetInnerHTML={{ __html: item.description.en }} style={(isDarkMode.isDarkMode ? { color: 'white' } : { color: 'black' })}   >
                     </div>
-                    <h3 >Rank: <span>{item.market_cap_rank} </span></h3 >
-                    <h3 >Current Price:<span> {item.market_data.current_price.usd}</span></h3 >
-                    <h3 >Market Cap:<span> {(
-                        item.market_data.market_cap.usd /
-                        1_000_000
-                    ).toFixed(2)}</span></h3 >
+                    <div className="rank">
+                        <h3 >Rank: <span>{item.market_cap_rank} </span></h3 >
+                        <h3 >Current Price:<span> {item.market_data.current_price.usd}</span></h3 >
+                        <h3 >Market Cap:<span> {(
+                            item.market_data.market_cap.usd /
+                            1_000_000
+                        ).toFixed(2)}</span></h3 >
+                    </div>
+
                 </div>
 
             </div>}

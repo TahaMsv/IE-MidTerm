@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './HomePage.css';
 import {
   Link
@@ -9,8 +9,21 @@ import {
   changeTheme,
 } from "../redux/searchPanel/searchingPanel-actions";
 
-const HomePage = ({ items, isDarkMode, changeTheme }) => {
-  return (
+// آیتم هایی که پاس داده شده ولی از آن ها استفاده نشده در واقع پیاده سازی آخرین سرچ ها با ریدکس است که با اضافه شذن لوکال اسنوریج دیگر از آن استفاده نکر
+const HomePage = ({ items, isDarkMode, changeTheme }) => {  
+  const [curentSearches, setCurentSearches] = useState([])
+
+  const fetchCurentSearches = () => {  // این تابع 3 تا آخرین سرچ های ما را زا لوکال استوریچ می خواند.
+    var items = JSON.parse(localStorage.getItem('items'));
+    items == null ? setCurentSearches([]) : setCurentSearches(items);
+    console.log(curentSearches);
+  };
+
+  useEffect(() => {
+    fetchCurentSearches()
+  }, [])
+
+  return ( 
     <div id="parent" class={(isDarkMode ? 'dark-background' : 'light-background ')}>
       <div id="wide" style={{
 
@@ -19,7 +32,7 @@ const HomePage = ({ items, isDarkMode, changeTheme }) => {
         alignItems: 'flex-start',
         justifyContent: 'center',
       }}>
-        <div class={"headingTexts" + " " + (isDarkMode ? 'dark-headingTexts' : 'light-headingTexts')}>
+        <div class={"headingTexts" + " " + (isDarkMode ? 'dark-headingTexts' : 'light-headingTexts')}>  
           <h1 >Search & </h1>
           <h1 id="buy-h1" >Buy <span>Crypto</span> </h1>
         </div>
@@ -50,7 +63,7 @@ const HomePage = ({ items, isDarkMode, changeTheme }) => {
               alignItems: 'center',
               flexDirection: 'row',
             }}>
-              {items
+              {curentSearches
                 .map(coin => <div class={"box" + " " + (isDarkMode ? 'dark-box' : 'light-box ')} onClick={() => changeTheme()}   >
                   <center>
                     <div id="coin-item" class={"coin-item" + " " + (isDarkMode ? 'dark-coin-item' : 'light-coin-item')}>
@@ -78,14 +91,14 @@ const HomePage = ({ items, isDarkMode, changeTheme }) => {
   );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {  // استیت را از ریداکس میخواند
   return {
     items: state.shop.currentList,
     isDarkMode: state.shop.isDarkMode,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {  // اکشن ها را از ریداکس میخواند
   return {
     changeTheme: () => dispatch(changeTheme()),
   };

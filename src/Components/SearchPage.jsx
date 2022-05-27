@@ -15,10 +15,10 @@ import {
 const SearchPage = ({ addToCarrentsList, isDarkMode }) => {
     const [items, setItems] = useState(null);
 
-    const getInputValue = (event) => {
+    const getInputValue = (event) => {  // تابعی است برای خواندن ورودی ها از اینپوت فیلد
         var userValue = event.target.value;
-        userValue = userValue.replace(",", "%2C")
-        console.log(userValue);
+        userValue = userValue.replace(",", "%2C") // آماده سازی آیدی کوین ها برای فچ کردن و گذاشتن در یو آر ال
+        // console.log(userValue);
         if (userValue != "") {
             loadItem(userValue);
         }
@@ -27,15 +27,12 @@ const SearchPage = ({ addToCarrentsList, isDarkMode }) => {
 
     const loadItem = (listOFCoins) => {
         console.log(listOFCoins);
-        // axios.get('`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${listOFCoins}&order=market_cap_desc&per_page=100&page=1&sparkline=false`')
-        //     .then(response => {
-        //         console.log(response);
-        //     });
         fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${listOFCoins}&order=market_cap_desc&per_page=100&page=1&sparkline=false`).then(res => res.json()
-        ).then(coins => {
+        ).then(coins => {  // کوین ها را فچ کرده
             setItems(coins);
-            addToCarrentsList(coins);
-            console.log(coins);
+            addToCarrentsList(coins);  // سیو در لیست آخرین سرچ ها در ریداکس
+            seveInLocalStotrage(coins); // سیو در لوکال استوریج
+            
         }, (error) => {
             if (error) {
                 console.log(error);
@@ -44,6 +41,22 @@ const SearchPage = ({ addToCarrentsList, isDarkMode }) => {
         }
         );
     }
+
+   const  seveInLocalStotrage = (coins) => {
+        var items = JSON.parse(localStorage.getItem('items'));  // پارس کردن استرینگ درون لوکال استوریج
+        if(!items){
+            items =[];
+        }
+        coins.filter(coin => {  // داده های تکراری را از لیست حذف و دوباره اد میکنیم. اگر هم تکراری نبود اد میکنیم مستقیم.
+            items = items.filter(item => item.id !== coin.id);
+            items.push(coin);
+          })
+          if (items.length > 3) {  // سه تا سرچ آخر را نگه میداریم
+            items = items.slice(-3);
+          }
+    
+          localStorage.setItem('items', JSON.stringify(items)); // ئدر لوکال استوریج ذخیرخ میکنیم
+      };
 
     return (
         <div >
@@ -55,7 +68,7 @@ const SearchPage = ({ addToCarrentsList, isDarkMode }) => {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     flexDirection: 'column',
-                    flexWrap: 'wrap-reverse'
+                    // flexWrap: 'wrap-reverse'
                 }}>
                     <div class="title-container" style={{
 
@@ -69,7 +82,7 @@ const SearchPage = ({ addToCarrentsList, isDarkMode }) => {
                         <small>Get Information From Here</small>
 
                     </div>
-
+<div className="divider"></div>
                     <div
                         class={"search-list" + " " + (isDarkMode ? 'dark-search-list' : 'light-search-list')}
                         style={{

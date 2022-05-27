@@ -10,6 +10,9 @@
     background-size: cover;
 }
 
+
+/*  بسیاری از کد تکراری است و صرفا بر اساس تم، رنگ ها تغییر میکند. */
+
 .light-background {
     background-image: url("../../assets/images/ligth-background.jpg");
 }
@@ -18,10 +21,16 @@
     background-image: url("../../assets/images/background.png");
 }
 
+
+/* سمت راست صفحه */
+
 #narrow {
     flex: 5;
     height: 100%;
 }
+
+
+/* سمت چپ صفحه */
 
 #wide {
     flex: 3;

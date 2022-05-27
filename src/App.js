@@ -12,8 +12,10 @@ import {
 } from "react-router-dom";
 
 function App() {
-  return (
-    <Router>
+  
+  return (   
+    // در این فایل روت ها را تعیین میکنیم که در صورت چه یو آر الی به کدام کامپوننت  برویم.
+    <Router>   
         <Routes>
           <Route path='/' element={
           <HomePage />

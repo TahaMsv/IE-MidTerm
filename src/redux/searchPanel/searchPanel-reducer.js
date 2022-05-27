@@ -7,26 +7,18 @@ const INITIAL_STATE = {
 
 const searchPanelReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case actionTypes.ADD_TO_CURRNETS_LIST:
-      // Great Item data from products array
+    case actionTypes.ADD_TO_CURRNETS_LIST:  // سیو کردن ایتم ها در ریداکس
 
-      action.payload.items.filter(currItem => {
+      action.payload.items.filter(currItem => {  // اد کردن داده ها. و در صورتی که تکراری است قبلی آن را حذف میکنیم
         state.currentList = state.currentList.filter(item => item.id !== currItem.id);
         state.currentList.push(currItem);
       })
-
-      // console.log(state.currentList.length);
-      // while(state.currentList.lenght > 2){
-      //   state.currentList.pop();
-      //   console.log(state.currentList);
-      //   console.log(state.currentList);
-      // }
       if (state.currentList.length > 3) {
         state.currentList = state.currentList.slice(-3);
       }
 
       return state;
-    case actionTypes.CHANGE_THEME:
+    case actionTypes.CHANGE_THEME:// عوض کردن تم برنامه
       return {
         ...state,
         isDarkMode: !state.isDarkMode,

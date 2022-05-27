@@ -1,15 +1,4 @@
-/* #parent {
-    display: flex;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    background-image: url("../../assets/images/background.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-} */
+/* دوآیتم درون نوبار بین هم فاصله دارن و در سنتر هستن */
 
 ul {
     list-style-type: none;
@@ -22,6 +11,9 @@ ul {
     align-items: center;
     flex-direction: 'row';
 }
+
+
+/*  بسیاری از کد تکراری است و صرفا بر اساس تم، رنگ ها تغییر میکند. */
 
 .dark-ul {
     background-color: #222;
