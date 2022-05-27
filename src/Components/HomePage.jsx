@@ -24,11 +24,11 @@ const HomePage = ({ items, isDarkMode, changeTheme }) => {
           <h1 id="buy-h1" >Buy <span>Crypto</span> </h1>
         </div>
 
-        <div  class={"smallTexts" + " " + (isDarkMode ? 'dark-smallTexts' : 'light-smallTexts')}>
+        <div class={"smallTexts" + " " + (isDarkMode ? 'dark-smallTexts' : 'light-smallTexts')}>
           <small>Shahid Beheshti University</small>
           <small>IE Final Project</small>
         </div>
-        <Link to="/SearchPage" > <button  class={"search-button" + " " + (isDarkMode ? 'dark-search-button' : 'light-search-button')}>SEARCH MORE</button></Link>
+        <Link to="/SearchPage" > <button class={"search-button" + " " + (isDarkMode ? 'dark-search-button' : 'light-search-button')}>SEARCH MORE</button></Link>
 
       </div>
       <div id="narrow" style={{
@@ -39,7 +39,8 @@ const HomePage = ({ items, isDarkMode, changeTheme }) => {
         flexDirection: 'column',
       }}
       >
-        <button class={"change-theme-button" + (isDarkMode ? '' : ' dark-change-theme-button')} onClick={() => changeTheme()}>Change Theme</button>
+        <button class={"change-theme-button" + (isDarkMode ? '' : ' dark-change-theme-button')}
+          onClick={() => changeTheme()}>Change Theme</button>
         <div class="coin-list">
           <center>
             <div class="container" style={{
@@ -50,14 +51,14 @@ const HomePage = ({ items, isDarkMode, changeTheme }) => {
               flexDirection: 'row',
             }}>
               {items
-                .map(coin => <div class={"box" +" " + (isDarkMode ? 'dark-box' : 'light-box ')} onClick={() => changeTheme()}   >
+                .map(coin => <div class={"box" + " " + (isDarkMode ? 'dark-box' : 'light-box ')} onClick={() => changeTheme()}   >
                   <center>
-                    <div id="coin-item"  class={"coin-item" + " " + (isDarkMode ? 'dark-coin-item' : 'light-coin-item')}>
+                    <div id="coin-item" class={"coin-item" + " " + (isDarkMode ? 'dark-coin-item' : 'light-coin-item')}>
                       <div id="coin-image">
                         <img src={coin.image} alt="" />
                       </div>
                       <div id="coin-details">
-                        <div  class={"coin-name" + " " + (isDarkMode ? 'dark-coin-name' : 'light-coin-name')}>
+                        <div class={"coin-name" + " " + (isDarkMode ? 'dark-coin-name' : 'light-coin-name')}>
                           ${coin.current_price}
                         </div>
                         <div id="coin-price">

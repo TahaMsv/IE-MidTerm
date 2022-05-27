@@ -23,14 +23,30 @@ ul {
     flex-direction: 'row';
 }
 
+.dark-ul {
+    background-color: #222;
+}
+
+.light-ul {
+    background-color: #ddd;
+}
+
 li button {
     display: block;
-    color: rgb(255, 165, 0);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     background-color: transparent;
     border: none;
+    cursor: pointer;
+}
+
+.dark-change-theme-btn {
+    color: rgb(255, 165, 0);
+}
+
+.light-change-theme-btn {
+    color: #222;
 }
 
 li a:hover:not(.active) {
@@ -39,7 +55,14 @@ li a:hover:not(.active) {
 
 .title {
     margin: auto 0px;
+}
+
+.dark-title {
     color: rgb(255, 165, 0);
+}
+
+.light-title {
+    color: #222;
 }
 
 .title>h4 {

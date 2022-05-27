@@ -9,10 +9,10 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import {
     addToCarrentsList,
-    //   changeTheme,
+    changeTheme,
 } from "../redux/searchPanel/searchingPanel-actions";
 
-const SearchPage = ({ addToCarrentsList }) => {
+const SearchPage = ({ addToCarrentsList, isDarkMode, changeTheme }) => {
     const [items, setItems] = useState(null);
 
     const getInputValue = (event) => {
@@ -70,15 +70,18 @@ const SearchPage = ({ addToCarrentsList }) => {
 
                     </div>
 
-                    <div className="search-list" style={{
+                    <div
+                        class={"search-list" + " " + (isDarkMode ? 'dark-search-list' : 'light-search-list')}
+                        style={{
 
-                        display: 'flex',
-                        justifyContent: 'flex-start',
-                        alignItems: 'center',
-                        flexDirection: 'column',
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            alignItems: 'center',
+                            flexDirection: 'column',
 
-                    }}>
-                        <div class="search-list-title">Cryptocurrency Price By Market Cap</div>
+                        }}>
+                        <div class={"search-list-title" + " " + (isDarkMode ? 'dark-search-list-title' : 'light-search-list-title')}
+                        >Cryptocurrency Price By Market Cap</div>
 
                         <div class="list" style={{
 
@@ -99,7 +102,6 @@ const SearchPage = ({ addToCarrentsList }) => {
                                 }}>
 
                                     <input type="text" name="form-input" class="form-input" placeholder="Search for a crypto currency" onChange={getInputValue} />
-                                    <input type="submit" name="form-btn" class="form-btn" value="Search" />
 
                                 </form>
                             </div>
@@ -113,7 +115,7 @@ const SearchPage = ({ addToCarrentsList }) => {
                                     flexDirection: 'row',
 
                                 }}>
-                                <div class="coin-field" >Coin</div>
+                                <div class="coin-field " >Coin</div>
                                 <div class="price-field">Price</div>
                                 <div class="change24-field">24 Change</div>
                                 <div class="market-cap-field">Market Cap</div>
@@ -123,7 +125,7 @@ const SearchPage = ({ addToCarrentsList }) => {
 
                                     items.map(coin =>
                                         <Link to={"/CoinDetailsPage/" + coin.id} class="list-item" >
-                                            <div class="list-item"
+                                            <div   class={"list-item" + " " + (isDarkMode ? 'dark-border-bottom' : 'light-border-bottom')}
                                                 style={{
 
                                                     display: 'flex',
@@ -146,11 +148,11 @@ const SearchPage = ({ addToCarrentsList }) => {
                                                             <div class="coin-image">
                                                                 <img src={coin.image} alt="" />
                                                             </div>
-                                                            <div class="coin-details">
-                                                                <div class="coin-abbr-name">
+                                                            <div  class={"coin-details" + " " + (isDarkMode ? 'dark-coin-details' : 'light-coin-details')}>
+                                                                <div class={"coin-abbr-name" + " " + (isDarkMode ? 'dark-coin-abbr-name' : 'light-coin-abbr-name')}>
                                                                     {coin.symbol}
                                                                 </div>
-                                                                <div class="coin-full-name">
+                                                                <div class={"coin-full-name" + " " + (isDarkMode ? 'dark-coin-full-name' : 'light-coin-full-name')} >
                                                                     {coin.id}
                                                                 </div>
                                                             </div>
@@ -158,13 +160,13 @@ const SearchPage = ({ addToCarrentsList }) => {
 
                                                     </div>
                                                 </div>
-                                                <div class="price-field">{coin.current_price}</div>
+                                                <div  class={"price-field" + " " + (isDarkMode ? 'dark-price-field' : 'light-price-field')}>{coin.current_price}</div>
                                                 {coin.price_change_24h > 0 ?
                                                     <div class="green-24change-field">{coin.price_change_24h}</div> :
-                                                    <div class="red-24change-field">{coin.price_change_24h}</div>
+                                                    <div class="red-24change-field">{coin.price_change_24h.toFixed(2)}</div>
                                                 }
 
-                                                <div class="market-cap-field">{coin.market_cap}</div>
+                                                <div  class={"market-cap-field" + " " + (isDarkMode ? 'dark-market-cap-field' : 'light-market-cap-field')}>{(coin.market_cap / 1000000).toFixed(2)}</div>
                                             </div>
                                         </Link>
                                     )
@@ -179,10 +181,19 @@ const SearchPage = ({ addToCarrentsList }) => {
     );
 }
 
-const mapDispatchToProps = (dispatch) => {
+
+
+const mapStateToProps = (state) => {
     return {
-        addToCarrentsList: (items) => dispatch(addToCarrentsList(items)),
+        isDarkMode: state.shop.isDarkMode,
     };
 };
 
-export default connect(null, mapDispatchToProps)(SearchPage);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCarrentsList: (items) => dispatch(addToCarrentsList(items)),
+        changeTheme: () => dispatch(changeTheme()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

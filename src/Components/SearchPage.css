@@ -33,8 +33,15 @@ h1 {
 .search-list {
     width: 100%;
     height: 300px;
-    background-color: #222;
     padding-top: 10px;
+}
+
+.dark-search-list {
+    background-color: #222;
+}
+
+.light-search-list {
+    background-color: #ddd;
 }
 
 .title-container {
@@ -44,6 +51,15 @@ h1 {
 
 .search-list-title {
     font-size: 25px;
+    color: white;
+}
+
+.dark-search-list-title {
+    color: cwhite;
+}
+
+.light-search-list-title {
+    color: #222;
 }
 
 .list {
@@ -64,9 +80,8 @@ h1 {
     margin-top: 10px;
 }
 
-.form-input,
-.form-btn {
-    width: 80%;
+.form-input {
+    width: 100%;
     padding: 5px;
     border: 1px solid #000;
     margin: 0 0 1px;
@@ -82,8 +97,15 @@ h1 {
     width: 100%;
     height: 60px;
     background-color: transparent;
-    border-bottom: 0.5px solid white;
     text-decoration: none;
+}
+
+.dark-border-bottom {
+    border-bottom: 0.5px solid white;
+}
+
+.light-border-bottom {
+    border-bottom: 0.5px solid black;
 }
 
 .coin-field {
@@ -99,12 +121,17 @@ h1 {
 }
 
 .list-item>div {
-    color: white;
+    /* color: white; */
     font-size: 10px;
     font-weight: 700;
 }
 
 .price-field {
+    flex: 1;
+    text-align: center;
+}
+
+.change24-field {
     flex: 1;
     text-align: center;
 }
@@ -118,6 +145,7 @@ h1 {
 .market-cap-field {
     flex: 1;
     text-align: center;
+    color: white;
 }
 
 .list-item>.red-24change-field {
@@ -153,12 +181,40 @@ h1 {
     font-size: 12px;
 }
 
-.coin-full-name {
+.dark-coin-full-name {
     color: white;
+}
+
+.light-coin-full-name {
+    color: black;
+}
+
+.dark-market-cap-field {
+    color: white;
+}
+
+.light-market-cap-field {
+    color: black;
+}
+
+.dark-price-field {
+    color: white;
+}
+
+.light-price-field {
+    color: black;
 }
 
 .coin-abbr-name {
     font-size: 15px;
+}
+
+.dark-coin-abbr-name {
+    color: white;
+}
+
+.light-coin-abbr-name {
+    color: black;
 }
 
 img {
