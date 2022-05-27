@@ -12,7 +12,7 @@ import {
     changeTheme,
 } from "../redux/searchPanel/searchingPanel-actions";
 
-const SearchPage = ({ addToCarrentsList, isDarkMode, changeTheme }) => {
+const SearchPage = ({ addToCarrentsList, isDarkMode }) => {
     const [items, setItems] = useState(null);
 
     const getInputValue = (event) => {
@@ -48,7 +48,7 @@ const SearchPage = ({ addToCarrentsList, isDarkMode, changeTheme }) => {
     return (
         <div >
             <Navbar class="header" />
-            <div class="details-page-parent">
+            <div class="page-parent">
                 <div class="container" style={{
 
                     display: 'flex',

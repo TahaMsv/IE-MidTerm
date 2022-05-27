@@ -6,7 +6,14 @@
     left: 0;
     width: 100%;
     /* overflow: hidden; */
+}
+
+.dark-details-page-parent {
     background-color: black;
+}
+
+.light-details-page-parent {
+    background-color: white;
 }
 
 .container {
@@ -26,13 +33,21 @@
     /* overflow: hidden; */
 }
 
-h3 {
+
+/* h3 {
     color: white;
+} */
+
+.dark-description {
+    color: white;
+}
+
+.light-description {
+    color: black;
 }
 
 .container>div {
     display: inline-block;
-    color: white;
 }
 
 span {
@@ -42,4 +57,14 @@ span {
 img {
     max-width: 100%;
     max-height: 100%;
+}
+
+.dark-container>h3,
+.dark-container>div>h1 {
+    color: white;
+}
+
+.light-container>h3,
+.light-container>div>h1 {
+    color: black;
 }
