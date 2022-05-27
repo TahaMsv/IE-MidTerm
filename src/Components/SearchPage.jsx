@@ -4,17 +4,25 @@ import Navbar from '../Components/Navbar';
 import {
     Link
 } from "react-router-dom";
-import axios from 'axios';
 import { useState } from "react";
 
-const SearchPage = () => {
+import { connect } from "react-redux";
+import {
+    addToCarrentsList,
+    //   changeTheme,
+} from "../redux/searchPanel/searchingPanel-actions";
+
+const SearchPage = ({ addToCarrentsList }) => {
     const [items, setItems] = useState(null);
 
     const getInputValue = (event) => {
         var userValue = event.target.value;
         userValue = userValue.replace(",", "%2C")
         console.log(userValue);
-        loadItem(userValue);
+        if (userValue != "") {
+            loadItem(userValue);
+        }
+
     };
 
     const loadItem = (listOFCoins) => {
@@ -26,6 +34,7 @@ const SearchPage = () => {
         fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${listOFCoins}&order=market_cap_desc&per_page=100&page=1&sparkline=false`).then(res => res.json()
         ).then(coins => {
             setItems(coins);
+            addToCarrentsList(coins);
             console.log(coins);
         }, (error) => {
             if (error) {
@@ -151,7 +160,7 @@ const SearchPage = () => {
                                                 </div>
                                                 <div class="price-field">{coin.current_price}</div>
                                                 {coin.price_change_24h > 0 ?
-                                                    <div class="green-24change-field">{coin.price_change_24h }</div> :
+                                                    <div class="green-24change-field">{coin.price_change_24h}</div> :
                                                     <div class="red-24change-field">{coin.price_change_24h}</div>
                                                 }
 
@@ -170,5 +179,10 @@ const SearchPage = () => {
     );
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCarrentsList: (items) => dispatch(addToCarrentsList(items)),
+    };
+};
 
-export default SearchPage;
+export default connect(null, mapDispatchToProps)(SearchPage);
