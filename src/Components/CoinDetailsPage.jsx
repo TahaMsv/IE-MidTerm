@@ -43,7 +43,7 @@ const CoinDetailsPage = (isDarkMode) => {
 
                     <div class="description" dangerouslySetInnerHTML={{ __html: item.description.en }} style={(isDarkMode.isDarkMode ? { color: 'white' } : { color: 'black' })}   >
                     </div>
-                    <div className="rank">
+                    <div class={"rank" + " " + (isDarkMode.isDarkMode ? 'dark-container' : 'light-container')}>
                         <h3 >Rank: <span>{item.market_cap_rank} </span></h3 >
                         <h3 >Current Price:<span> {item.market_data.current_price.usd}</span></h3 >
                         <h3 >Market Cap:<span> {(
